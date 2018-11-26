@@ -1,7 +1,9 @@
-package com.bizpoll.shop_CSone.domain;
+package com.bizpoll.shop_CSone.dao;
 
 import java.io.IOException;
 import java.util.List;
+
+import com.bizpoll.shop_CSone.dto.ProductDTO;
 
 // 인터페이스
 public interface IIndexDAO {

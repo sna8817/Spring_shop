@@ -7,8 +7,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.bizpoll.shop_CSone.domain.IIndexDAO;
-import com.bizpoll.shop_CSone.domain.ProductDTO;
+import com.bizpoll.shop_CSone.dao.IIndexDAO;
+import com.bizpoll.shop_CSone.dto.ProductDTO;
 import com.bizpoll.shop_CSone.service.IIndexService;
 // 구현체
 

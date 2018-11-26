@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bizpoll.shop_CSone.mapper.indexMapper">
+
+	<!-- ProductDAO -->
+	<!-- 베스트상품 -->
+	<select id="bestView" resultType="com.bizpoll.shop_CSone.dto.ProductDTO">
+		<![CDATA[
+		SELECT * FROM (SELECT * FROM CSproduct
+		ORDER BY p_purchasecnt DESC)
+		WHERE ROWNUM <=8
+		]]>
+	</select>
+	
+	<!-- 신상품 -->
+	<select id="newView" resultType="com.bizpoll.shop_CSone.dto.ProductDTO">
+	<![CDATA[
+		SELECT * FROM (SELECT * FROM CSproduct
+        ORDER BY p_indate DESC)
+        WHERE ROWNUM <=8
+    ]]>
+	</select>
+
+
+
+
+
+</mapper>

@@ -1,4 +1,4 @@
-package com.bizpoll.shop_CSone.domain;
+package com.bizpoll.shop_CSone.dto;
 
 public class PageMakerDTO {
 	private int totalCount;			 // 전체 데이터 개수

@@ -135,7 +135,7 @@
 			<table>
 				<thead>
 					<tr>
-					<th><img alt="" src="img/QRcoding.jpg"></th>
+					<th><img alt="" src="${path}/resources/img/QRcoding.jpg"></th>
 					<th class="footer-th">공지사항</th>
 					<th class="footer-th">기관소개</th>
 					<th class="footer-th">찾아오시는 길</th>
@@ -151,7 +151,7 @@
 			<p>http://www.edupoll.net/</p>
 			<div id="address">
 				<span><a href="http://localhost:8081/shop_csone/include/header.html">
-				<img id="addr_logo" src="img/logo_csone_s.png" width="40" height="40"></a></span>
+				<img id="addr_logo" src="${path}/resources/img/logo_csone_s.png" width="40" height="40"></a></span>
 				<span>Copyright</span>
 				<span>ⓒ <strong><a href="#">sconeCorp.</a></strong></span>
 				<span>All Rights Reserved.</span>

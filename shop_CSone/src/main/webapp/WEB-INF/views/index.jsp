@@ -358,25 +358,25 @@ hr {
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 4</div>
-  <img class="img_main" src="img/main_01.jpg" style="width:100%">
+  <img class="img_main" src="${path}/resources/img/main_01.jpg" style="width:100%">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 4</div>
-  <img class="img_main" src="img/main_02.png" style="width:100%">
+  <img class="img_main" src="${path}/resources/img/main_02.png" style="width:100%">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 4</div>
-  <img class="img_main" src="img/main_03.jpg" style="width:100%">
+  <img class="img_main" src="${path}/resources/img/main_03.jpg" style="width:100%">
   <div class="text">Caption Three</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">4 / 4</div>
-  <img class="img_main" src="img/main_04.png" style="width:100%">
+  <img class="img_main" src="${path}/resources/img/main_04.png" style="width:100%">
   <div class="text">Caption Four</div>
 </div>
 
@@ -403,12 +403,12 @@ hr {
 						<div class="area_thumbnail">
 								<strong class="title">${bestDto.p_name}</strong>
 							<div class="thumbnail">
-								<img class="card_img" src="img/${bestDto.p_img}">
+								<img class="card_img" src="${path}/resources/img/${bestDto.p_img}">
 								<!-- 상세페이지 -->
 								 <div class="modal_all">
 								 <div class="modal_in">
 								  <div class="modal_up"><span class="draw">${bestDto.p_name}</span><span class="close_btn"><i class="fa fa-close"></i></span></div>
-								  <div class="modal_img"><img alt="" src="img/${bestDto.p_img}"><h3>${bestDto.p_name}<span> (${bestDto.p_detail}) </span></h3></div>
+								  <div class="modal_img"><img alt="" src="${path}/resources/img/${bestDto.p_img}"><h3>${bestDto.p_name}<span> (${bestDto.p_detail}) </span></h3></div>
 								  <div class="modal_text">
 								   <h4>"${bestDto.p_text}"</h4>
 							 	  </div>
@@ -451,7 +451,7 @@ hr {
 						<div class="area_thumbnail">
 								<strong class="title">${newDto.p_name}</strong>
 							<div class="thumbnail">
-								<img class="card_img" src="img/${newDto.p_img}">
+								<img class="card_img" src="${path}/resources/img/${newDto.p_img}">
 								<!-- <img alt="상품1" src="img/main1.png" width="296" height="240" class="imege">	 -->
 							</div>
 							<div class="area_title">

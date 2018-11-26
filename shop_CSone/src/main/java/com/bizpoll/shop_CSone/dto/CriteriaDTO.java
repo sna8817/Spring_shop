@@ -1,4 +1,4 @@
-package com.bizpoll.shop_CSone.domain;
+package com.bizpoll.shop_CSone.dto;
 
 // 검색기준 또는 분류기준
 public class CriteriaDTO {
@@ -11,6 +11,7 @@ public class CriteriaDTO {
 	public CriteriaDTO() {
 		this.page = 1;
 		this.perPageNum = 10;
+		this.code = "new";
 	}
 
 	public CriteriaDTO(int page, int perPageNum, String keyword) {
@@ -83,8 +84,9 @@ public class CriteriaDTO {
 	@Override
 	public String toString() {
 		return "CriteriaDTO [page=" + page + ", perPageNum=" + perPageNum + ", keyword=" + keyword + ", flag=" + flag
-				+ "]";
+				+ ", code=" + code + "]";
 	}
+
 	
  	
 }

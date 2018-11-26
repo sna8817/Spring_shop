@@ -279,7 +279,7 @@
 			<div id="header_wrap">
 				<div id="header_line1">
 					<div id="header_line1_in">
-					<a href="<%=path%>/index.bizpoll"><img src="<%=path%>/img/logo_cake_white.png" width="40" height="30" id="header_line1_slogo"></a>
+					<a href="<%=path%>/index.bizpoll"><img src="${path}/resources/img/logo_cake_white.png" width="40" height="30" id="header_line1_slogo"></a>
 						<ul id="header_line1_ul">
 						  <c:choose>
 						   <c:when test="${empty sessionScope.loginUser}"> <!-- 로그인 안된 상태 -->
@@ -320,7 +320,7 @@
 				<a href="#">
 					<div id="header_line2_logo">
 						<!-- <p id="CSone">CSone</p> -->
-						<a href="<%=path%>/index.bizpoll"><img src="<%=path%>/img/logo_csone.png" id="header_logo" width="150" height="80" alt="로고디자인"></a>
+						<a href="<%=path%>/index.bizpoll"><img src="${path}/resources/img/logo_csone.png" id="header_logo" width="150" height="80" alt="로고디자인"></a>
 					</div>
 				</a>
 				<div id="header_line2_wrap_search">
@@ -391,7 +391,7 @@
 									</ul>
 								</div>
 							</li>
-							<li><a href="<%=path%>/boardList.bizpoll">게시판</a>
+							<li><a href="${path}/board/list">게시판</a>
 						</ul>
 					</div>
 				</div>

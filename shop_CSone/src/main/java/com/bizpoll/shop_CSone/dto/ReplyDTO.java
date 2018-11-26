@@ -1,4 +1,4 @@
-package com.bizpoll.shop_CSone.domain;
+package com.bizpoll.shop_CSone.dto;
 
 import java.util.Date;
 
