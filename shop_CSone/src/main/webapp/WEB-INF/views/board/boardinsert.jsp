@@ -151,7 +151,7 @@
 	display: none;
 }
 </style>
-<script type="text/javascript" src="<%=path%>/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="${path}/resources/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript">
 	$(document).on("click",".bd_in_btn", function(elClickedObj){
 		alert("test");
@@ -232,7 +232,7 @@
 	
 // 로그인페이지로 이동!!!
 //* 2. JavaScript사용 
-	var cnt=4; // 3,2,1,0 ⇒  함수가 실행되는 시간이 1초 걸리기 때문에 -1한 4부터 시작 
+	/* var cnt=4; // 3,2,1,0 ⇒  함수가 실행되는 시간이 1초 걸리기 때문에 -1한 4부터 시작 
 	function countdown(){
 		if(cnt == 0){
 			clearInterval(s);
@@ -241,7 +241,7 @@
 		document.getElementById("rCnt").innerHTML=cnt;
 		cnt--;
 	}
-	var s = setInterval(countdown, 1000); // Start ⇒ 1초단위로 countdown 실행! 
+	var s = setInterval(countdown, 1000); */ // Start ⇒ 1초단위로 countdown 실행! 
 </script>
 <title>게시글 등록</title>
 </head>
@@ -250,7 +250,7 @@
 	<header id="boardr_to">
 		<h3>게시글 등록</h3>
 	</header>
-	<c:choose>
+	<%-- <c:choose>
 		 <c:when test="${empty sessionScope.loginUser}">
 	<div id="noUser">
 		<div id="noUser_text">
@@ -261,9 +261,9 @@
 		</div>
 	</div>
 		</c:when>
-		<c:otherwise>
+		<c:otherwise> --%>
 	<article id="boardr_md">
-	<form action="boardInsertPlay.bizpoll" id="frm_btn" name="frm_btn" enctype="multipart/form-data" method="POST">
+	<form action="${path}/board/register" id="frm_btn" name="frm_btn" enctype="multipart/form-data" method="POST">
 	<div id="table_div">
 		<table id="boardr_table" border="1px solid lightgray">
 		 <thead style="border-right-color: lightgray;">
@@ -275,7 +275,7 @@
 		 	</tr>
 		 	<tr class="line">
 		 		<th style="width: 100px">writer</th>
-				<th style="width: 900px;text-align: left;"><input value="${sessionScope.loginUser.id}" name="writer" readonly="readonly" id="writer">
+				<th style="width: 900px;text-align: left;"><input name="writer" id="writer">
 				</th>
 		 	</tr>
 		 </thead>
@@ -314,11 +314,11 @@
 		nhn.husky.EZCreator.createInIFrame({
 			oAppRef: oEditors,
 			elPlaceHolder: "content",
-			sSkinURI: "<%=path%>/smarteditor/SmartEditor2Skin.html",
+			sSkinURI: "${path}/resources/smarteditor/SmartEditor2Skin.html",
 			fCreator: "createSEditor2"
 		});
 	</script>
-		</c:otherwise>
-	</c:choose>
+		<%-- </c:otherwise>
+	</c:choose> --%>
 </body>
 </html>

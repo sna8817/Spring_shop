@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file="../include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -205,7 +205,7 @@
 			var flag = $("#bd_select").val();
 			alert(flag+keyword);
 			// 쿼리스트링
-			location.href="boardList.bizpoll?flag="+flag+"&keyword="+keyword;
+			location.href="${path}/board/list?flag="+flag+"&keyword="+keyword;
 			
 		});
 		
@@ -214,18 +214,17 @@
 </head>
 <body id="board_body">
 	<header>
-		
 	</header>
 	
 	<article id="BTwrap">
 		<div id="BT_top">
 			<h3>Q&A</h3>
 				<input type="hidden" value="${code}" id="code">
-				<span><a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=new" id="orderNew">최신순</a></span>&nbsp;<span class="bar">|</span>
-				<span><a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=good" id="orderGood">추천순</a></span>&nbsp;<span class="bar">|</span>
-				<span><a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=reply" id="orderReply">댓글순</a></span>&nbsp;<span class="bar">|</span>
-				<span><a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=cnt" id="orderCnt">조회순</a></span>&nbsp;
-				<div id="write"><span><strong><a href="boardinsert.bizpoll">글쓰기</a></strong></span></div>&nbsp;
+				<span><a href="${path}/board/list?flag=${flag}&keyword=${keyword}&code=new" id="orderNew">최신순</a></span>&nbsp;<span class="bar">|</span>
+				<span><a href="${path}/board/list?flag=${flag}&keyword=${keyword}&code=good" id="orderGood">추천순</a></span>&nbsp;<span class="bar">|</span>
+				<span><a href="${path}/board/list?flag=${flag}&keyword=${keyword}&code=reply" id="orderReply">댓글순</a></span>&nbsp;<span class="bar">|</span>
+				<span><a href="${path}/board/list?flag=${flag}&keyword=${keyword}&code=cnt" id="orderCnt">조회순</a></span>&nbsp;
+				<div id="write"><span><strong><a href="${path}/board/register">글쓰기</a></strong></span></div>&nbsp;
 				<div class="clr_both"></div>
 		</div>
 		<table id="board_table" border="0">
@@ -288,28 +287,28 @@
 		</table>
 		
 	<!-- 검색 결과 -->
-	<div id="search_result">
+	<%-- <div id="search_result">
 	 <span>${keyword}의 검색 결과는 총""개 입니다.</span>
-	</div>
+	</div> --%>
 	
 	
 	<div id="b_wrap">
 	<div id="pagination">
 		<div class = "page">
 			<c:if test="${pageMaker.prev}">
-				<a href="boardList.bizpoll?page=${pageMaker.startPage-1}" class="pagent">&laquo;</a>
+				<a href="${path}/board/list?page=${pageMaker.startPage-1}&flag=${flag}&keyword=${keyword}&code=${code}" class="pagent">&laquo;</a>
 				
 			</c:if>
 			<c:forEach begin="${pageMaker.startPage}"
 			  end="${pageMaker.endPage}" var="idx">
 			  	<a <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>
-			  		href="boardList.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}" class="pagent">${idx}</a>
+			  		href="${path}/board/list?page=${idx}&flag=${flag}&keyword=${keyword}&code=${code}" class="pagent">${idx}</a>
 			</c:forEach>
 			
 			<c:if test="${pageMaker.next}">
 				<span class="pagent" id="nohover">...</span>
-				<a href="boardList.bizpoll?page=${pageMaker.finalPage}" class="pagent">${pageMaker.finalPage}</a>
-				<a href="boardList.bizpoll?page=${pageMaker.endPage+1}" class="pagent">&raquo;</a>
+				<a href="${path}/board/list?page=${pageMaker.finalPage}&flag=${flag}&keyword=${keyword}&code=${code}" class="pagent">${pageMaker.finalPage}</a>
+				<a href="${path}/board/list?page=${pageMaker.endPage+1}&flag=${flag}&keyword=${keyword}&code=${code}" class="pagent">&raquo;</a>
 			</c:if>
 		</div>
 	</div>

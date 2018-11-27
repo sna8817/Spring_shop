@@ -1,35 +1,36 @@
-package com.bizpoll.shop_CSone.service.impl;
+package com.bizpoll.shop_CSone.dao.impl;
 
 import java.io.IOException;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bizpoll.shop_CSone.dao.IBoardDAO;
 import com.bizpoll.shop_CSone.dto.BoardDTO;
 import com.bizpoll.shop_CSone.dto.CriteriaDTO;
-import com.bizpoll.shop_CSone.service.IBoardService;
 
-// 구현체
-@Service
-public class BoardServiceImpl implements IBoardService{
+@Repository
+public class BoardDAOImpl implements IBoardDAO{
 
-	@Inject
-	private IBoardDAO bDao;
+	@Autowired
+	private SqlSession session;
+	
+	// MyBatis Mapper의 경로
+	private static String namespace = "com.bizpoll.shop_CSone.mapper.boardMapper";
 	
 	
 	@Override
 	public List<BoardDTO> listAll(CriteriaDTO criDto) throws IOException {
 		// TODO Auto-generated method stub
-		return bDao.listAll(criDto);
+		return session.selectList(namespace + ".boardList", criDto);
 	}
 
 	@Override
 	public int listCount(CriteriaDTO criDto) throws IOException {
 		// TODO Auto-generated method stub
-		return bDao.listCount(criDto);
+		return session.selectOne(namespace + ".countPaging", criDto);
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class BoardServiceImpl implements IBoardService{
 	@Override
 	public void registerBoard(BoardDTO bDto) throws IOException {
 		// TODO Auto-generated method stub
-		bDao.registerBoard(bDto);
+		session.insert(namespace + ".registerBoard", bDto);
 	}
 
 	@Override

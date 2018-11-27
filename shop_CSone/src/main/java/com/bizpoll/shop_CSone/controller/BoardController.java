@@ -10,7 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bizpoll.shop_CSone.dto.BoardDTO;
 import com.bizpoll.shop_CSone.dto.CriteriaDTO;
 import com.bizpoll.shop_CSone.dto.PageMakerDTO;
 import com.bizpoll.shop_CSone.service.IBoardService;
@@ -55,19 +57,36 @@ public class BoardController {
 		return "board/boardlist";
 	}
 	
-	// 게시판 등록
-	@RequestMapping("register")
-	public String boardRegister() throws IOException{
-		return "";
+	// 게시글 등록 View
+	@RequestMapping(value="register", method=RequestMethod.GET)
+	public String boardRegisterView() throws IOException{
+		logger.info("게시글 등록 View");
+		return "board/boardinsert";
 	}
 	
-	// 게시판 수정
+	// 게시글 등록 Action
+	@RequestMapping(value="register", method=RequestMethod.POST)
+	public String boardRegisterAcion(BoardDTO bDto) throws IOException{
+		logger.info("게시글 등록 Action");
+		logger.info(bDto.toString());
+		// bDto에 게시글 등록할 값 담겨있음
+		// DAO 게시글 등록 연결 <- 
+		
+		bDto.setFilename("-"); // Filename과 size가 명시되어있지 않기때문에 임의로 해줌!
+		bDto.setFilesize(0);
+		service.registerBoard(bDto); // service단으로 등록할 값가지고 감!
+		logger.info("게시글 등록 후!!!!"+bDto.toString());
+		
+		return "redirect:/board/list";
+	}
+	
+	// 게시글 수정
 	@RequestMapping("modify")
 	public String boardModify() throws IOException{
 		return "";
 	}
 	
-	// 게시판 삭제
+	// 게시글 삭제
 	@RequestMapping("remove")
 	public String boardRemove() throws IOException{
 		return "";
