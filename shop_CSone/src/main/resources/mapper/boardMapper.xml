@@ -85,6 +85,25 @@
 			VALUES(seq_CSBoard.NEXTVAL, #{title}, #{writer}, #{filename}, #{filesize})
 			</otherwise>
 		</choose>
-</insert>	
+</insert>
+
+<!-- Board 상세 게시글 목록 출력 -->
+<select id="boardDetailView" resultType="com.bizpoll.shop_CSone.dto.BoardDTO">
+		SELECT * FROM CSBoard
+		WHERE bno = #{bno}
+</select>
+
+<!-- Board 게시글 삭제 -->
+<delete id="boardDelete" parameterType="int">
+		DELETE FROM CSBoard
+		WHERE bno=#{bno}
+</delete>
+
+<!-- Board 게시글 수정 -->
+<update id="boardUpdate" parameterType="com.bizpoll.shop_CSone.dto.BoardDTO">
+		UPDATE CSBoard
+		SET writer=#{writer}, title=#{title}, content=#{content}
+		WHERE bno=#{bno}
+</update>
 
 </mapper>

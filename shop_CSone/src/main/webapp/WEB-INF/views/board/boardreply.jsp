@@ -523,10 +523,10 @@
 	 });
  }
  
- 
+ // 게시글 수정
  $(document).on("click","#up_btn", function(){
 	alert("test");
-	location.href="boardupdate.bizpoll?bno=${boardview.bno}";
+	location.href="${path}/board/modify?bno=${boardview.bno}";
  });
  
  
@@ -543,7 +543,7 @@
 		$("#modal_all").css("display", "none");
 	 });
 	 $("#yes_btn").click(function(){
-		location.href="boarddelete.bizpoll?bno=${boardview.bno}";
+		location.href="${path}/board/remove?bno=${boardview.bno}";
 	 });
   });
   
@@ -664,7 +664,6 @@
 			</tr>		 	
 		 </tfoot>
 		</table>
-		<c:if test="${sessionScope.loginUser.id==boardview.writer}">
 		 <button class="bd_dl_btn" id="de_btn">삭제</button>
 		 <!-- 삭제 모달창 -->
 		 <div id="modal_all">
@@ -677,9 +676,8 @@
 		   </div>
 		</div>
 		 <button class="bd_up_btn" id="up_btn">수정</button>
-		</c:if>
 		
-		<button class="bd_ex_btn"><a href="boardList.bizpoll">목록</a></button>
+		<button class="bd_ex_btn"><a href="${path}/board/list">목록</a></button>
 	</div>
 	
 	

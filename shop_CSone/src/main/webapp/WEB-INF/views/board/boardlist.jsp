@@ -249,7 +249,7 @@
 					<th>${bDto.bno}</th>
 					<th>문의사항</th>
 					<th class="subject">
-					<a href="boardViewcnt.bizpoll?bno=${bDto.bno}">${bDto.title}
+					<a href="${path}/board/view?bno=${bDto.bno}">${bDto.title}
 					<!-- new! -->
 					<c:if test="${today2==regdate2}">
 						<span class="new_time">NEW</span>

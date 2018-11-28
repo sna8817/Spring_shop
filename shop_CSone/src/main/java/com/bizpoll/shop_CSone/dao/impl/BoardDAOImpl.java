@@ -36,7 +36,7 @@ public class BoardDAOImpl implements IBoardDAO{
 	@Override
 	public BoardDTO viewBoard(int bno) throws IOException {
 		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne(namespace + ".boardDetailView", bno);
 	}
 
 	@Override
@@ -48,13 +48,13 @@ public class BoardDAOImpl implements IBoardDAO{
 	@Override
 	public void modifyBoard(BoardDTO bDto) throws IOException {
 		// TODO Auto-generated method stub
-		
+		session.update(namespace + ".boardUpdate", bDto);
 	}
 
 	@Override
 	public void removeBoard(int bno) throws IOException {
 		// TODO Auto-generated method stub
-		
+		session.delete(namespace + ".boardDelete", bno);
 	}
 
 }

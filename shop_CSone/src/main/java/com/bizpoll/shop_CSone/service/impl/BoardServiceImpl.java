@@ -35,7 +35,7 @@ public class BoardServiceImpl implements IBoardService{
 	@Override
 	public BoardDTO viewBoard(int bno) throws IOException {
 		// TODO Auto-generated method stub
-		return null;
+		return bDao.viewBoard(bno);
 	}
 
 	@Override
@@ -47,13 +47,13 @@ public class BoardServiceImpl implements IBoardService{
 	@Override
 	public void modifyBoard(BoardDTO bDto) throws IOException {
 		// TODO Auto-generated method stub
-		
+		bDao.modifyBoard(bDto);
 	}
 
 	@Override
 	public void removeBoard(int bno) throws IOException {
 		// TODO Auto-generated method stub
-		
+		bDao.removeBoard(bno);
 	}
 
 }
